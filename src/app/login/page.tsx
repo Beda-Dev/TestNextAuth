@@ -6,24 +6,24 @@ import { Card, CardContent } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-export default function Signup() {
+export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
 
-  const handleSignup = async (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Logique d'inscription ici
-    console.log('Inscription:', { username, password });
-    router.push('/login');
+    // Logique de connexion ici
+    console.log('Connexion:', { username, password });
+    router.push('/dashboard');
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <Card className="w-full max-w-md">
         <CardContent>
-          <Typography variant="h4" className="text-center mb-4">Inscription</Typography>
-          <form onSubmit={handleSignup} className="space-y-4">
+          <Typography variant="h4" className="text-center mb-4">Connexion</Typography>
+          <form onSubmit={handleLogin} className="space-y-4">
             <TextField
               label="Nom d'utilisateur"
               variant="outlined"
@@ -39,9 +39,9 @@ export default function Signup() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <p>vous etes deje inscrit ? <Link href={"/login"} className='text-blue-500'>{"Se connecter"}</Link></p>
+            <p>vous etes avez deja un compte ? <Link href={"/"} className='text-blue-500'>{"S'inscrire"}</Link></p>
             <Button type="submit" variant="contained" color="primary" fullWidth>
-              {"S'inscrire"}
+              Se connecter
             </Button>
           </form>
         </CardContent>
